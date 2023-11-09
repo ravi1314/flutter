@@ -1,18 +1,22 @@
-import 'package:hive/hive.dart';
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/adapters.dart';
-import 'package:newtodolist/pages/HomePage.dart';
-// ignore_for_file: unused_local_variable, unnecessary_import
+import 'package:todolist/pages/testing.dart';
+import 'package:todolist/pages/LoginPage.dart';
+import 'package:todolist/Auth/authService.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+// ignore_for_file: unused_element
+
+// ignore_for_file: unused_import
 
 // ignore_for_file: prefer_const_constructors
 
+//call google api for sign in
+
 void main() async {
-  await Hive.initFlutter();
-
-  //open box
-
-  var box = await Hive.openBox('Mybox');
-
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -24,8 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: AurhPage(),
     );
   }
 }
-////////////////////////////////////////////////////////////////////////////*************************************************//////////////// */
